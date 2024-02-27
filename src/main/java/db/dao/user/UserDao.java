@@ -25,7 +25,7 @@ public class UserDao implements IUser{
 			int res = db.maj(sql);
 			return res;
 		}else {
-			String sql = "UPDATE user_table SET gain = " + user.getGain() + " WHERE user =  '"+user.getNom()+"' ;";
+			String sql = "UPDATE user_table SET gain = " + user.getGain() + " WHERE nom =  '"+user.getNom()+"' ;";
 			int res = db.maj(sql);
 			return res;
 		}
@@ -45,7 +45,7 @@ public class UserDao implements IUser{
 			{
 				//System.out.println(res.getString(1));
 				//System.out.println(res.getInt(2));
-				user = new User(res.getString(2),res.getInt(3));
+				user = new User(res.getString(2),res.getInt(3),res.getBoolean(4));
 				users.add(user);
 			}
 		} catch (SQLException e) {
@@ -64,7 +64,7 @@ public class UserDao implements IUser{
 		try {
 			if(res.next())
 			{
-				user = new User(res.getString(2),res.getInt(3));
+				user =  new User(res.getString(2),res.getInt(3),res.getBoolean(4));
 			}
 			
 		} catch (SQLException e) {
@@ -83,7 +83,7 @@ public class UserDao implements IUser{
 		try {
 			if(res.next())
 			{
-				_user = new User(res.getString(2),res.getInt(3));
+				_user =  new User(res.getString(2),res.getInt(3),res.getBoolean(4));
 			}
 			
 		} catch (SQLException e) {

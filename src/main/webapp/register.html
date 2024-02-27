@@ -5,6 +5,30 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Welcome to this amazing web application</title>
 </head>
+<script>
+        function getQueryParam(parameterName) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(parameterName);
+        }
+
+        const status = getQueryParam('status');
+        if (status !== null) {
+            console.log('Status:', status);
+
+            
+            switch (status) {
+                case '403':
+                    alert('Access Forbidden! You do not have permission to access this page.');
+                    break;
+                case '400':
+                	alert('Invalid Input');
+                default:
+                    console.log('Unhandled status:', status);
+            }
+        } else {
+            console.log('Status parameter not present.');
+        }
+</script>
 <body>
 <center>
 	<h1> Tenter votre chance a cette lotterie virtuelle!</h1>

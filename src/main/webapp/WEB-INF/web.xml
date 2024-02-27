@@ -31,4 +31,17 @@
     <url-pattern>/Users</url-pattern>
     <url-pattern>/users</url-pattern>
   </servlet-mapping>
+  <filter>
+    <display-name>BlackListFilter</display-name>
+    <filter-name>BlackListFilter</filter-name>
+    <filter-class>utils.BlackListFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>BlackListFilter</filter-name>
+    <url-pattern>/Hello</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>BlackListFilter</filter-name>
+    <url-pattern>/hello</url-pattern>
+  </filter-mapping>
 </web-app>
