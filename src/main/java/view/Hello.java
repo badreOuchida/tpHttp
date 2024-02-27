@@ -61,6 +61,7 @@ public class Hello extends HttpServlet {
 			 out.println("Invalid request");
 		 }
 		 
+		 out.println("<a href=\"./users\">users</a>");
 		 
 		 
 		 
