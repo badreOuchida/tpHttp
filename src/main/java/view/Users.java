@@ -37,7 +37,41 @@ public class Users extends HttpServlet {
         dao = new UserDao();
         List<User> users = dao.getUsers();
         out.println("<html>");
-        out.println("<head><title>User Table</title></head>");
+        out.println("<head><title>User Table</title>"
+        		+ ""
+        		+ ""
+        		+ "<style>\r\n"
+        		+ "        body {\r\n"
+        		+ "            font-family: Arial, sans-serif;\r\n"
+        		+ "            background-color: #f4f4f4;\r\n"
+        		+ "            margin: 0;\r\n"
+        		+ "            padding: 0;\r\n"
+        		+ "        }\r\n"
+        		+ "\r\n"
+        		+ "        table {\r\n"
+        		+ "            border-collapse: collapse;\r\n"
+        		+ "            width: 80%;\r\n"
+        		+ "            margin: 20px auto;\r\n"
+        		+ "            background-color: #fff;\r\n"
+        		+ "            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n"
+        		+ "        }\r\n"
+        		+ "\r\n"
+        		+ "        th, td {\r\n"
+        		+ "            border: 1px solid #ddd;\r\n"
+        		+ "            padding: 10px;\r\n"
+        		+ "            text-align: left;\r\n"
+        		+ "        }\r\n"
+        		+ "\r\n"
+        		+ "        th {\r\n"
+        		+ "            background-color: #4CAF50;\r\n"
+        		+ "            color: white;\r\n"
+        		+ "        }\r\n"
+        		+ "\r\n"
+        		+ "        tr:nth-child(even) {\r\n"
+        		+ "            background-color: #f2f2f2;\r\n"
+        		+ "        }\r\n"
+        		+ "    </style>"
+        		+ "</head>");
         out.println("<body>");
 
         
