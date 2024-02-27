@@ -45,7 +45,7 @@ public class UserDao implements IUser{
 			{
 				//System.out.println(res.getString(1));
 				//System.out.println(res.getInt(2));
-				user = new User(res.getString(2),res.getInt(3));
+				user = new User(res.getString(2),res.getInt(3),res.getString(3));
 				users.add(user);
 			}
 		} catch (SQLException e) {
@@ -64,7 +64,7 @@ public class UserDao implements IUser{
 		try {
 			if(res.next())
 			{
-				user = new User(res.getString(2),res.getInt(3));
+				user = new User(res.getString(2),res.getInt(3),res.getString(4));
 			}
 			
 		} catch (SQLException e) {
@@ -83,7 +83,7 @@ public class UserDao implements IUser{
 		try {
 			if(res.next())
 			{
-				_user = new User(res.getString(2),res.getInt(3));
+				_user = new User(res.getString(2),res.getInt(3),res.getString(4));
 			}
 			
 		} catch (SQLException e) {

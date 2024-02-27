@@ -80,11 +80,20 @@ public class Hello extends HttpServlet {
 			nomPrenom = votreNom.toUpperCase();
 			int gain = (int) (Math.random() * 10);
 			dao = new UserDao();
-			dao.updateOrAddUser(new User(votreNom,gain));
-			request.setAttribute("gain", String.valueOf(gain));
+			User user = dao.getUser(new User(votreNom,gain));
+			if( (user != null && user.getRole().equals("tomcat")) || user == null )
+			{
+				dao.updateOrAddUser(new User(votreNom,gain));
+				request.setAttribute("gain", String.valueOf(gain));
+				doGet(request, response);
+			}
+			else {
+				response.sendRedirect("register.html?status=403");
+			}
+		}else {
+			response.sendRedirect("register.html?ststuc=400");
 		}
 		
-		doGet(request, response);
 			
 	}
 
