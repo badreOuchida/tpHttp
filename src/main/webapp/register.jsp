@@ -41,6 +41,7 @@
  Votre nom svp: <input type = "TEXT" name = "nom"><br>
  <br>
  <center><input type = "SUBMIT" name = "Submit Query"></center>
+ 
 </form>
 
 </body>
