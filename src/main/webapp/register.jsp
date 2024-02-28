@@ -1,10 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Welcome to this amazing web application</title>
-</head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
 <script>
         function getQueryParam(parameterName) {
             const urlParams = new URLSearchParams(window.location.search);
@@ -29,7 +30,10 @@
             console.log('Status parameter not present.');
         }
 </script>
+</head>
 <body>
+
+
 <center>
 	<h1> Tenter votre chance a cette lotterie virtuelle!</h1>
 </center>

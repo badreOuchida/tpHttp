@@ -53,7 +53,7 @@ public class BlackListFilter extends HttpFilter implements Filter {
 
         }else {
         	HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-    	    httpServletResponse.sendRedirect("/p2p_project/register.html?status=403");
+    	    httpServletResponse.sendRedirect("/p2p_project/register.jsp?status=403");
         }
         
 	}
