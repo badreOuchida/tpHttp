@@ -48,6 +48,11 @@ public class User {
 
 	public void setBlackList(boolean isBlackList) {
 		this.isBlackList = isBlackList;
+	}
+
+	@Override
+	public String toString() {
+		return "{\"nom\":\"" + nom + "\", \"gain\":" + gain + ", \"isBlackList\":" + isBlackList + "}";
 	} 
 	
 	

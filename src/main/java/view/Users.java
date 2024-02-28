@@ -31,64 +31,36 @@ public class Users extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-
-        PrintWriter out = response.getWriter();
-        dao = new UserDao();
-        List<User> users = dao.getUsers();
-        out.println("<html>");
-        out.println("<head><title>User Table</title>"
-        		+ ""
-        		+ ""
-        		+ "<style>\r\n"
-        		+ "        body {\r\n"
-        		+ "            font-family: Arial, sans-serif;\r\n"
-        		+ "            background-color: #f4f4f4;\r\n"
-        		+ "            margin: 0;\r\n"
-        		+ "            padding: 0;\r\n"
-        		+ "        }\r\n"
-        		+ "\r\n"
-        		+ "        table {\r\n"
-        		+ "            border-collapse: collapse;\r\n"
-        		+ "            width: 80%;\r\n"
-        		+ "            margin: 20px auto;\r\n"
-        		+ "            background-color: #fff;\r\n"
-        		+ "            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n"
-        		+ "        }\r\n"
-        		+ "\r\n"
-        		+ "        th, td {\r\n"
-        		+ "            border: 1px solid #ddd;\r\n"
-        		+ "            padding: 10px;\r\n"
-        		+ "            text-align: left;\r\n"
-        		+ "        }\r\n"
-        		+ "\r\n"
-        		+ "        th {\r\n"
-        		+ "            background-color: #4CAF50;\r\n"
-        		+ "            color: white;\r\n"
-        		+ "        }\r\n"
-        		+ "\r\n"
-        		+ "        tr:nth-child(even) {\r\n"
-        		+ "            background-color: #f2f2f2;\r\n"
-        		+ "        }\r\n"
-        		+ "    </style>"
-        		+ "</head>");
-        out.println("<body>");
-
-        
-        out.println("<table border='1'>");
-        out.println("<tr><th>nom</th><th>gain</th></tr>");
-
-        for(User user : users)
-        {
-        	out.println("<tr><td>"+user.getNom()+"</td><td>"+user.getGain()+" M</td></tr>");
-        }
-        
-
-        out.println("</table>");
-
-        out.println("</body>");
-        out.println("</html>");
+        response.sendRedirect("users.jsp");
 		
 	}
-
+	
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+		PrintWriter out = response.getWriter();
+		dao = new UserDao();
+		
+        String nom = request.getParameter("nom");
+        int res = dao.deleteUser(new User(nom));		
+        //int gain = Integer.parseInt(request.getParameter(""));
+		//boolean isBlackListed = Boolean.parseBoolean(request.getParameter("isBlackList"));
+		out.print(res);
+	}
+	
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
+		dao = new UserDao();
+		
+        String nom = request.getParameter("nom");
+        String gain = request.getParameter("gain");
+        String isBlackListed = request.getParameter("blacklisted");
+        System.out.println("nom : "+nom);
+        System.out.println("gain : "+gain);
+        System.out.println("isBlackListed : "+isBlackListed);
+        int res = dao.updateUser(new User(nom,Integer.parseInt(gain),!Boolean.parseBoolean(isBlackListed)));		
+		out.print(res);
+		
+	}
+	
+	
 }

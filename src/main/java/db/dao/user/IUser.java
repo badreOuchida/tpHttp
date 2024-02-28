@@ -9,4 +9,7 @@ public interface IUser {
 	public User getUser(User user);
 	public List<User> getUsers();
 	public User getUser(int id);
+	public int updateUser(User user);
+	public int deleteUser(User user);
+
 }
