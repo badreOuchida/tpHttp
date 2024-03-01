@@ -44,14 +44,22 @@
     <filter-name>BlackListFilter</filter-name>
     <url-pattern>/hello</url-pattern>
   </filter-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Us</display-name>
-    <servlet-name>Us</servlet-name>
-    <servlet-class>view.Us</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Us</servlet-name>
-    <url-pattern>/Us</url-pattern>
-  </servlet-mapping>
+  
+  
+  <!-- Gestion des erreurs 4xx -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/errorPages/404.jsp</location>
+    </error-page>
+
+    <!-- Gestion des erreurs 5xx -->
+ 
+    <error-page>
+        <error-code>503</error-code>
+        <location>/errorPages/503.jsp</location>
+    </error-page>
+  
+  
+  
+  
 </web-app>

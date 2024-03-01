@@ -58,7 +58,7 @@ public class Hello extends HttpServlet {
 			 out.println("Vous avez gagne: "+ gain);
 			 out.println(" millions de dollars!");
 		 }else {
-			 out.println("Invalid request");
+			 response.sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE);
 		 }
 		 
 		 out.println("<a href=\"/p2p_project/users\">users</a>");
@@ -76,17 +76,18 @@ public class Hello extends HttpServlet {
 		String votreNom = null;
 		String nomPrenom = "Anonymous";
 		votreNom = request.getParameter("nom");
-		if (votreNom != null)
+		System.out.println("votre nom : " +votreNom.equals(""));
+		if (votreNom != null && !votreNom.equals(""))
 		{
 			nomPrenom = votreNom.toUpperCase();
 			int gain = (int) (Math.random() * 10);
 			dao = new UserDao();
 			dao.updateOrAddUser(new User(votreNom,gain));
 			request.setAttribute("gain", String.valueOf(gain));
-		}
-		
-		doGet(request, response);
-			
+			doGet(request, response);
+		}else {
+            response.sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE);
+		}	
 	}
 
 }
